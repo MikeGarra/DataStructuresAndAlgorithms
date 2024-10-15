@@ -185,6 +185,23 @@ class LinkedList {
             delete temp;
             length--;
         }
+
+        // Reverses the flow of the LL changing the Head and Tail locations
+        void reverse() {
+            Node* temp = head;
+            head = tail;
+            tail = temp;
+            Node* after = temp->next;
+            Node* before = nullptr;
+
+            for (int i = 0; i < length; i++) {
+                after = temp->next;
+                temp->next = before;
+                // Needed due to the above two lines cutting the connection in the LL
+                before = temp;
+                temp = after;
+            }
+        }
 };
 
 int main() {
@@ -209,6 +226,13 @@ int main() {
     cout << "Tail: "<< myLinkedList->getTail()->value << endl;
     cout << "Length: "<< myLinkedList->getLength() << endl;
     cout << "Index: "<< myLinkedList->get(2)->value << endl;
+
+    // Reverse of the LL function:
+    cout << endl;
+    cout << "LL in Reverse: " << endl;
+    myLinkedList->reverse();
+    myLinkedList->printList();
+    cout << endl;
 
     // Intitalization of set function and print of changes:
     myLinkedList->set(1, 60);
