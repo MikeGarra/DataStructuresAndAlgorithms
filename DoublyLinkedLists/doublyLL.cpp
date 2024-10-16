@@ -28,8 +28,29 @@ class DoublyLinkedList {
             tail = newNode;
             length = 1;
         }
+
+    void printList() {
+        Node* temp = head;
+        while (temp) {
+            cout << temp->value << endl;
+            temp = temp->next;
+        }
+    }
+
+    void getHead() {
+        cout << "Head: " << head->value << endl;
+    }
+
+    void getTail() {
+        cout << "Tail: " << tail->value << endl;
+    }
+
+    void getLength() {
+        cout << "Length: " << length << endl;
+    }
 };
 
 int main () {
     DoublyLinkedList* myDLL = new DoublyLinkedList(5);
+    myDLL->printList();
 }
