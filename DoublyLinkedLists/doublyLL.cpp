@@ -48,9 +48,28 @@ class DoublyLinkedList {
     void getLength() {
         cout << "Length: " << length << endl;
     }
+
+    void append(int value) {
+        Node* newNode = new Node(value);
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+        length++;
+    }
 };
 
 int main () {
+    // Creating a Doubly Linked List:
     DoublyLinkedList* myDLL = new DoublyLinkedList(5);
+    myDLL->printList();
+
+    // Append new Node at the end of DLL:
+    myDLL->append(12);
+    cout << endl << "Appended DLL:" << endl;
     myDLL->printList();
 }
