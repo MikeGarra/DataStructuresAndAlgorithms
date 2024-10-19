@@ -25,24 +25,30 @@ class Stack {
             height = 1;
         }
 
-        void printStack(){
+        void printStack() {
             Node* temp = top;
-            while(top) {
+            while(temp) {
                 cout << temp->value << endl;
                 temp = temp->next;
             }
         }
 
         void getTop(){
-            cout << "Top is: " << top << endl;
+            cout << "Top is: " << top->value << endl;
         }
 
-        void getheight(){
+        void getHeight(){
             cout << "Height is: " << height << endl;
         }
 
 };
 
 int main() {
+    Stack* myStack = new Stack(6);
+
+    myStack->getTop();
+    myStack->getHeight();
+    myStack->printStack();
+
 
 }
